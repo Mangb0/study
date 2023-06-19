@@ -13,14 +13,16 @@ import { useStore } from "vuex";
 export default {
   setup() {
     let id = ref("");
-    let user = ["mangbo"];
+    let user = ["mangbo", "test1", "test2"];
     const store = useStore();
 
     const onClickLogin = () => {
       console.log("onClickLogin");
       console.log(id.value);
-      if (user.includes(id.value)) alert("login");
-      store.commit("setUser", id.value);
+      if (user.includes(id.value)) {
+        alert("login");
+        store.commit("setUser", id.value);
+      } else alert("retry");
     };
 
     return { id, user, onClickLogin };
